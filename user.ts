@@ -12,13 +12,13 @@ const user = new iam.User(stack, 'User', {
 });
 
 const key = new iam.CfnAccessKey(stack, 'AccessKey', {
-  serial: '1',
+  serial: 1,
   userName: user.userName,
   status: 'Active'
 });
 
 
-const userSecret = JSON.Stringify({
+const userSecret = JSON.stringify({
   accessKey: key.ref,
   secretKey: cdk.Fn.getAtt(key, 'SecretAccessKey')
 });
