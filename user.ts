@@ -19,7 +19,7 @@ const key = new iam.CfnAccessKey(stack, 'AccessKey', {
 
 const userSecret = JSON.stringify({
   accessKey: key.ref,
-  secretKey: key.attrSecretKey
+  secretKey: key.attrSecretAccessKey
 });
 
 new secrets.CfnSecret(stack, 'Secret', {
