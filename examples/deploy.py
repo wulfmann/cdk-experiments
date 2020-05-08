@@ -21,3 +21,5 @@ def main():
 if __name__ == "__main__":
     os.environ['USERNAME'] = 'test-user'
     main()
+
+# python deploy.py -- aws sts get-caller-identity
