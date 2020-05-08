@@ -1,7 +1,6 @@
 import * as cdk from '@aws-cdk/core'
 import * as iam from '@aws-cdk/aws-iam'
 import * as secrets from '@aws-cdk/aws-secretsmanager'
-import * as ssm from '@aws-cdk/aws-ssm';
 
 // CDK Configuration
 const app = new cdk.App();
