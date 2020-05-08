@@ -7,7 +7,8 @@
     "ts-node": "ts-node"
   },
   "devDependencies": {
-    "ts-node": "^8.6.2"
+    "ts-node": "^8.6.2",
+    "typescript": "3.8.3"
   },
   "dependencies": {
     "@aws-cdk/aws-iam": "^1.36.0",
