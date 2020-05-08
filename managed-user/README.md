@@ -16,3 +16,9 @@ To rotate key
 ```bash
 yarn cdk synth -c serial=2
 ```
+
+## Usage
+
+You can easily fetch the secure value and use the keys to expose in the environment or create a new session with.
+
+An example can be found [Here](/managed-user/examples/example_deploy_script.py).
