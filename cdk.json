@@ -1,0 +1,6 @@
+{
+    "app": "yarn ts-node cdk.ts",
+    "versionReporting": false,
+    "requireApproval": "never",
+    "strict": true
+}
