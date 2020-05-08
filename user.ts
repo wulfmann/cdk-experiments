@@ -9,7 +9,7 @@ const stack = new cdk.Stack(app, 'Stack');
 
 const username = 'test-user';
 
-const serial = stack.tryGetContext('build');
+const serial = stack.node.tryGetContext('build');
 
 // Resources
 const user = new iam.User(stack, 'User', {
