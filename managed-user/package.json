@@ -1,5 +1,5 @@
 {
-  "name": "cdk-experiments",
+  "name": "cdk-experiments-managed-user",
   "private": true,
   "version": "0.1.0",
   "scripts": {

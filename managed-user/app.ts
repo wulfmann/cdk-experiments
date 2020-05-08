@@ -1,6 +1,6 @@
 import * as cdk from '@aws-cdk/core'
 import * as iam from '@aws-cdk/aws-iam'
-import { ManagedUser } from './managed-user';
+import { ManagedUser } from './constructs/managed-user';
 
 // CDK Configuration
 const app = new cdk.App();
