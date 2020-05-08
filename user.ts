@@ -18,7 +18,7 @@ const key = new iam.CfnAccessKey(stack, 'AccessKey', {
 });
 
 const userSecret = JSON.stringify({
-  accessKey: key.ref
+  accessKey: key.ref,
   secretKey: cdk.Fn.getAtt('AccessKey', 'SecretAccessKey')
 });
 
