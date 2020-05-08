@@ -1,18 +1,23 @@
 import * as cdk from '@aws-cdk/core'
 import * as iam from '@aws-cdk/aws-iam'
 import * as secrets from '@aws-cdk/aws-secretsmanager'
+import * as ssm from '@aws-cdk/aws-ssm';
 
 // CDK Configuration
 const app = new cdk.App();
 const stack = new cdk.Stack(app, 'Stack');
 
+const username = 'test-user';
+
+const serial = stack.tryGetContext('build');
+
 // Resources
 const user = new iam.User(stack, 'User', {
-  userName: 'test-user'
+  userName: username
 });
 
 const key = new iam.CfnAccessKey(stack, 'AccessKey', {
-  serial: 1,
+  serial,
   userName: user.userName,
   status: 'Active'
 });
@@ -25,3 +30,4 @@ const userSecret = JSON.stringify({
 new secrets.CfnSecret(stack, 'Secret', {
   secretString: userSecret
 });
+
