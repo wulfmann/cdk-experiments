@@ -1,5 +1,5 @@
 {
-    "app": "yarn ts-node cdk.ts",
+    "app": "yarn ts-node user.ts",
     "versionReporting": false,
     "requireApproval": "never",
     "strict": true
