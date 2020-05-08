@@ -1,5 +1,5 @@
 {
-    "app": "yarn ts-node user.ts",
+    "app": "yarn ts-node app.ts",
     "versionReporting": false,
     "requireApproval": "never",
     "strict": true,
