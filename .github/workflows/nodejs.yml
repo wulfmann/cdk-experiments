@@ -26,7 +26,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm i -g yarn
     - run: yarn
-    - run: yarn cdk synth -c serial=${{ github.run_number }} -o stack.json
+    - run: yarn cdk synth -c serial=${{ github.run_number }} -o stack.json --path-metadata false --asset-metadata false
     - name: Upload stack
       uses: actions/upload-artifact@v1
       with:
