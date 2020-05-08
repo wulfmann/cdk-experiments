@@ -2,5 +2,7 @@
     "app": "yarn ts-node user.ts",
     "versionReporting": false,
     "requireApproval": "never",
-    "strict": true
+    "strict": true,
+    "assetMetadata": false,
+    "pathMetadata": false
 }
