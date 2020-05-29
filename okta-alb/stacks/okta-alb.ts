@@ -48,7 +48,7 @@ export class OktaAlbStack extends cdk.Stack {
     });
 
     // Add OIDC Configuration
-    listener.addAction('Authentication', {\
+    listener.addAction('Authentication', {
       action: elb.ListenerAction.authenticateOidc({
         authorizationEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
           jsonField: 'authorizationEndpoint'
