@@ -1,14 +1,5 @@
-# Welcome to your CDK TypeScript project!
+# Okta ALB
 
-This is a blank project for TypeScript development with CDK.
+This project demonstrates how to configure an [ALB]() to handle authentication with [Okta]().
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+You can read the full walkthrough [here]().
