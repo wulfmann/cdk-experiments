@@ -16,90 +16,65 @@ export class OktaAlbStack extends cdk.Stack {
       vpc
     });
 
-    // Lambda Handlers
-    const publicHandler = new lambda.Function(this, 'PublicHandler', {
-      code: lambda.Code.fromAsset('./functions/public'),
-      handler: 'index.handler',
-      runtime: lambda.Runtime.NODEJS_12_X
-    });
-
-    const privateHandler = new lambda.Function(this, 'PrivateHandler', {
-      code: lambda.Code.fromAsset('./functions/private'),
-      handler: 'index.handler',
-      runtime: lambda.Runtime.NODEJS_12_X
-    });
-
-    const defaultTargetGroup = new elb.ApplicationTargetGroup(this, 'DefaultTargetGroup', {
-      targets: [
-        new targets.LambdaTarget(publicHandler)
-      ]
-    });
-
-    const privateTargetGroup = new elb.ApplicationTargetGroup(this, 'PrivateTargetGroup', {
-      targets: [
-        new targets.LambdaTarget(privateHandler)
-      ]
-    });
-
     // Redirect HTTP to HTTPS
     alb.addListener('HttpListener', {
       port: 80,
       protocol: elb.ApplicationProtocol.HTTP,
-      defaultAction: elb.ListenerAction.redirect({
-        protocol: elb.ApplicationProtocol.HTTPS,
-        port: '443'
-      })
+      defaultAction: elb.ListenerAction.redirect({ port: '443' })
     });
 
-    // Create new certificate for https listener
     const certificate = new acm.Certificate(this, 'Certificate', {
       domainName: '*.mkpkg.com'
     });
 
     const listener = alb.addListener('HttpsListener', {
       port: 443,
-      defaultTargetGroups: [defaultTargetGroup],
       protocol: elb.ApplicationProtocol.HTTPS,
       certificates: [
         elb.ListenerCertificate.fromCertificateManager(certificate)
       ]
     });
 
-    listener.addTargetGroups('TargetGroups', {
-      targetGroups: [
-        privateTargetGroup
-      ],
-      pathPattern: '/protected/*',
-      priority: 2
+    // Lambda Handler
+    const handler = new lambda.Function(this, 'Handler', {
+      code: lambda.Code.fromAsset('./function'),
+      handler: 'index.handler',
+      runtime: lambda.Runtime.NODEJS_12_X
     });
 
-    listener.addAction('Authentication', {
-      pathPatterns: ['/protected/*', '/oauth*'],
-      priority: 1,
-      action: elb.ListenerAction.authenticateOidc({
-        authorizationEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-          jsonField: 'authorizationEndpoint'
-        }).toString(),
-        clientId: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-          jsonField: 'clientId'
-        }).toString(),
-        clientSecret: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-          jsonField: 'clientSecret'
-        }),
-        issuer: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-          jsonField: 'issuer'
-        }).toString(),
-        tokenEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-          jsonField: 'tokenEndpoint'
-        }).toString(),
-        userInfoEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-          jsonField: 'userInfoEndpoint'
-        }).toString(),
-        onUnauthenticatedRequest: elb.UnauthenticatedAction.AUTHENTICATE,
-        scope: 'openid',
-        sessionTimeout: cdk.Duration.seconds(43200),
-        next: elb.ListenerAction.forward([privateTargetGroup])
-      })
+    // Attach Handlers to Listener
+    const targetGroup = listener.addTargets('Targets', {
+      targets: [new targets.LambdaTarget(handler)]
     });
+
+    // Add OIDC Configuration
+    // listener.addAction('Authentication', {
+    //   pathPatterns: ['/protected/*', '/oauth*'],
+    //   priority: 1,
+    //   action: elb.ListenerAction.authenticateOidc({
+    //     authorizationEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+    //       jsonField: 'authorizationEndpoint'
+    //     }).toString(),
+    //     clientId: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+    //       jsonField: 'clientId'
+    //     }).toString(),
+    //     clientSecret: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+    //       jsonField: 'clientSecret'
+    //     }),
+    //     issuer: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+    //       jsonField: 'issuer'
+    //     }).toString(),
+    //     tokenEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+    //       jsonField: 'tokenEndpoint'
+    //     }).toString(),
+    //     userInfoEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+    //       jsonField: 'userInfoEndpoint'
+    //     }).toString(),
+    //     onUnauthenticatedRequest: elb.UnauthenticatedAction.AUTHENTICATE,
+    //     scope: 'openid',
+    //     sessionTimeout: cdk.Duration.seconds(43200),
+    //     next: elb.ListenerAction.forward([targetGroup])
+    //   })
+    // });
   }
 }
