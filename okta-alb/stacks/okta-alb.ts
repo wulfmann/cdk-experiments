@@ -48,33 +48,33 @@ export class OktaAlbStack extends cdk.Stack {
     });
 
     // Add OIDC Configuration
-    // listener.addAction('Authentication', {
-    //   pathPatterns: ['/protected/*', '/oauth*'],
-    //   priority: 1,
-    //   action: elb.ListenerAction.authenticateOidc({
-    //     authorizationEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-    //       jsonField: 'authorizationEndpoint'
-    //     }).toString(),
-    //     clientId: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-    //       jsonField: 'clientId'
-    //     }).toString(),
-    //     clientSecret: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-    //       jsonField: 'clientSecret'
-    //     }),
-    //     issuer: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-    //       jsonField: 'issuer'
-    //     }).toString(),
-    //     tokenEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-    //       jsonField: 'tokenEndpoint'
-    //     }).toString(),
-    //     userInfoEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
-    //       jsonField: 'userInfoEndpoint'
-    //     }).toString(),
-    //     onUnauthenticatedRequest: elb.UnauthenticatedAction.AUTHENTICATE,
-    //     scope: 'openid',
-    //     sessionTimeout: cdk.Duration.seconds(43200),
-    //     next: elb.ListenerAction.forward([targetGroup])
-    //   })
-    // });
+    listener.addAction('Authentication', {
+      pathPatterns: ['/protected/*', '/oauth*'],
+      priority: 1,
+      action: elb.ListenerAction.authenticateOidc({
+        authorizationEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+          jsonField: 'authorizationEndpoint'
+        }).toString(),
+        clientId: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+          jsonField: 'clientId'
+        }).toString(),
+        clientSecret: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+          jsonField: 'clientSecret'
+        }),
+        issuer: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+          jsonField: 'issuer'
+        }).toString(),
+        tokenEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+          jsonField: 'tokenEndpoint'
+        }).toString(),
+        userInfoEndpoint: cdk.SecretValue.secretsManager('okta/protected-app/secrets', {
+          jsonField: 'userInfoEndpoint'
+        }).toString(),
+        onUnauthenticatedRequest: elb.UnauthenticatedAction.AUTHENTICATE,
+        scope: 'openid',
+        sessionTimeout: cdk.Duration.seconds(43200),
+        next: elb.ListenerAction.forward([targetGroup])
+      })
+    });
   }
 }
