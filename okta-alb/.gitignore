@@ -1,5 +1,5 @@
 *.js
-!functions.**/*.js
+!function/*.js
 *.d.ts
 node_modules
 
