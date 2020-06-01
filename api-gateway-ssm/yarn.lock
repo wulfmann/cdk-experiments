@@ -2,6 +2,177 @@
 # yarn lockfile v1
 
 
+"@aws-cdk/assets@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/assets/-/assets-1.42.0.tgz#acd520a08a977337cc9edffd4f71be3ed4f1c16a"
+  dependencies:
+    "@aws-cdk/core" "1.42.0"
+    "@aws-cdk/cx-api" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-apigateway@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigateway/-/aws-apigateway-1.42.0.tgz#21ed9a51cffe113ea651c40819e4bdacf4262840"
+  dependencies:
+    "@aws-cdk/assets" "1.42.0"
+    "@aws-cdk/aws-certificatemanager" "1.42.0"
+    "@aws-cdk/aws-ec2" "1.42.0"
+    "@aws-cdk/aws-elasticloadbalancingv2" "1.42.0"
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/aws-lambda" "1.42.0"
+    "@aws-cdk/aws-logs" "1.42.0"
+    "@aws-cdk/aws-s3" "1.42.0"
+    "@aws-cdk/aws-s3-assets" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    "@aws-cdk/cx-api" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-certificatemanager@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-certificatemanager/-/aws-certificatemanager-1.42.0.tgz#3d714278a520a962fddef92c12ce8a41f89203e4"
+  dependencies:
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/aws-lambda" "1.42.0"
+    "@aws-cdk/aws-route53" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-cloudwatch@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-cloudwatch/-/aws-cloudwatch-1.42.0.tgz#560314bacfb010a6fda89ca18265fdbb787488a7"
+  dependencies:
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-ec2@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ec2/-/aws-ec2-1.42.0.tgz#c11ae08fc974f30fb482d98496c4f7f9c352371e"
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.42.0"
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/aws-logs" "1.42.0"
+    "@aws-cdk/aws-s3" "1.42.0"
+    "@aws-cdk/aws-ssm" "1.42.0"
+    "@aws-cdk/cloud-assembly-schema" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    "@aws-cdk/cx-api" "1.42.0"
+    "@aws-cdk/region-info" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-elasticloadbalancingv2@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-elasticloadbalancingv2/-/aws-elasticloadbalancingv2-1.42.0.tgz#fa296f41ea194c8a82608a6e1cfa54f545a39ba6"
+  dependencies:
+    "@aws-cdk/aws-certificatemanager" "1.42.0"
+    "@aws-cdk/aws-cloudwatch" "1.42.0"
+    "@aws-cdk/aws-ec2" "1.42.0"
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/aws-lambda" "1.42.0"
+    "@aws-cdk/aws-s3" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-events@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-events/-/aws-events-1.42.0.tgz#38f728f265eab415559cc58941656cf719a5e4d3"
+  dependencies:
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-iam@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-iam/-/aws-iam-1.42.0.tgz#d93bc2fef4e3d27240122e86b63ad312f6909575"
+  dependencies:
+    "@aws-cdk/core" "1.42.0"
+    "@aws-cdk/region-info" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-kms@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-kms/-/aws-kms-1.42.0.tgz#f89b754cb12facbc8d6741a64d5c051fb03f2bdd"
+  dependencies:
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-lambda@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-lambda/-/aws-lambda-1.42.0.tgz#37f9e172201ca3142ed905b387b135385f2ca32e"
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.42.0"
+    "@aws-cdk/aws-ec2" "1.42.0"
+    "@aws-cdk/aws-events" "1.42.0"
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/aws-logs" "1.42.0"
+    "@aws-cdk/aws-s3" "1.42.0"
+    "@aws-cdk/aws-s3-assets" "1.42.0"
+    "@aws-cdk/aws-sqs" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    "@aws-cdk/cx-api" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-logs@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-logs/-/aws-logs-1.42.0.tgz#14e276db3f7489de667ee2d2014fb8a821948640"
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.42.0"
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-route53@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-route53/-/aws-route53-1.42.0.tgz#9f69f47a4ed721fa55fa7c0a2a301e946f53c997"
+  dependencies:
+    "@aws-cdk/aws-ec2" "1.42.0"
+    "@aws-cdk/aws-logs" "1.42.0"
+    "@aws-cdk/cloud-assembly-schema" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-s3-assets@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3-assets/-/aws-s3-assets-1.42.0.tgz#73a5dddc18b6e0bf0be03850718ef0ca94603361"
+  dependencies:
+    "@aws-cdk/assets" "1.42.0"
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/aws-s3" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    "@aws-cdk/cx-api" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-s3@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3/-/aws-s3-1.42.0.tgz#4d5ab7414509ea6e87afea36b6f8c3c31f298c91"
+  dependencies:
+    "@aws-cdk/aws-events" "1.42.0"
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/aws-kms" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-sqs@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-sqs/-/aws-sqs-1.42.0.tgz#32019dca6b978f95ae62b5a085aed780fc7fbe70"
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.42.0"
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/aws-kms" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-ssm@1.42.0":
+  version "1.42.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ssm/-/aws-ssm-1.42.0.tgz#f3b2b0580d6817fb28a2d82517f69c3986389f81"
+  dependencies:
+    "@aws-cdk/aws-iam" "1.42.0"
+    "@aws-cdk/aws-kms" "1.42.0"
+    "@aws-cdk/cloud-assembly-schema" "1.42.0"
+    "@aws-cdk/core" "1.42.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/cdk-assets-schema@1.42.0":
   version "1.42.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cdk-assets-schema/-/cdk-assets-schema-1.42.0.tgz#307e25bc46385cec284197fa70ea9056f58afbd2"
